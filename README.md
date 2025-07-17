@@ -1,2 +1,4 @@
-# ishaanahuja101.github.io
-Personal Website: ishaanahuja101.github.io
+# 👋 Hi, I'm Ishaan Ahuja
+
+Welcome to my personal website!  
+Check it out here 👉 [ishaanahuja101.github.io](https://ishaanahuja101.github.io)

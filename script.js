@@ -18,22 +18,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Typing animation for the title
-    const titleElement = document.querySelector('.title');
-    const titleText = titleElement.textContent;
-    titleElement.textContent = '';
-    
-    let i = 0;
-    function typeWriter() {
-        if (i < titleText.length) {
-            titleElement.textContent += titleText.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
+    // Dynamic color changes for highlighted text
+    function createColorVariations() {
+        const nameElement = document.querySelector('.highlight-name');
+        const companyElement = document.querySelector('.highlight-company');
+        
+        // Add subtle color variation effect
+        setInterval(() => {
+            if (nameElement) {
+                nameElement.style.animationDuration = `${5 + Math.random() * 3}s`;
+            }
+            if (companyElement) {
+                companyElement.style.animationDuration = `${4 + Math.random() * 3}s`;
+            }
+        }, 8000);
     }
-    
-    // Start typing animation after name appears
-    setTimeout(typeWriter, 1500);
+
+    // Add tech-themed code generation
+    function generateMoreCode() {
+        const codeRain = document.querySelector('.code-rain');
+        const codeStrings = ['01', '10', '11', '00', '{', '}', '<', '>', '/>', '&&', '||', '++', '--', '==='];
+        
+        setInterval(() => {
+            const codeChar = document.createElement('div');
+            codeChar.className = 'code-char';
+            codeChar.textContent = codeStrings[Math.floor(Math.random() * codeStrings.length)];
+            codeChar.style.left = Math.random() * 100 + '%';
+            codeChar.style.animationDuration = (5 + Math.random() * 5) + 's';
+            codeChar.style.animationDelay = Math.random() * 2 + 's';
+            
+            codeRain.appendChild(codeChar);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (codeRain.contains(codeChar)) {
+                    codeRain.removeChild(codeChar);
+                }
+            }, 8000);
+        }, 3000);
+    }
+
+    // Start all effects
+    createColorVariations();
+    generateMoreCode();
 
     // Interactive hover effect for the main content card
     const content = document.querySelector('.content');
